@@ -15,3 +15,7 @@ app.get('/user/:username', function(req, res) {
 
 ## Query strings
 * We use req.query to grab the query strings
+
+
+## Req body
+* We use the body-parse module and req.body.fieldName to grab the content posted by the user in a form.
