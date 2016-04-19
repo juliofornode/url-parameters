@@ -31,16 +31,14 @@ app.get('/:username/:userid', function(req, res) {
     res.send('These are the user parameters: ' + username + ' ' + userid + '. And the query string: ' + JSON.stringify(queryString));
 });
 
-app.get('/cookie', function(req, res) {
-    if(!req.cookies.counter) {
-        res.cookies.counter = 1;
-        console.log(res.cookies.couter);
-    } else {
-        console.log('old req.cookie.counter is: ', req.cookies.counter);
-        res.cookies = parseInt(req.cookies.counter, 10) + 1;
-        console.log('new req.cookie.counter is: ', req.cookies.counter);
-    }
-})
+
+app.get('/cookies', function(req, res){
+    if (!req.cookies.counter)
+        res.cookie('counter', 0);
+    else
+        res.cookie('counter', parseInt(req.cookies.counter,10) + 1);
+        res.status(200).send('counter cookie is now: ' + req.cookies.counter);
+});
 
 app.use('/', routes);
 

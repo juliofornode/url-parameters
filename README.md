@@ -19,3 +19,11 @@ app.get('/user/:username', function(req, res) {
 
 ## Req body
 * We use the body-parse module and req.body.fieldName to grab the content posted by the user in a form.
+
+
+## Cookies
+* We need to import cookie-parser
+* Middleware: app.use(cookieParser());
+* res.cookies('cookieName', cookieValue) sets a cookie.
+* req.cookies.cookieName grabs a cookie.
+* We will use req.signedCookies with {signed: true} if we specify a secret key in the middleware.
