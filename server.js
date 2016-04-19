@@ -19,7 +19,9 @@ var app = express();
 //6. routes
 app.get('/:username', function(req, res) {
     var username = req.params.username;
-    res.send('This is the username param: ' + username);
+    var queryString = req.query.is;
+    console.log(queryString);
+    res.send('This is the username param: ' + username + '. And this is the query string: ' + JSON.stringify(queryString));
 });
 
 app.use('/', routes);
