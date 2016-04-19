@@ -17,8 +17,9 @@ var app = express();
 
 
 //6. routes
-app.get('/', function(req, res) {
-    res.send('This is a route in server.js');
+app.get('/:username', function(req, res) {
+    var username = req.params.username;
+    res.send('This is the username param: ' + username);
 });
 
 app.use('/', routes);
